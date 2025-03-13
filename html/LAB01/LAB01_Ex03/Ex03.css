@@ -1,0 +1,136 @@
+:root {
+    --boxes_color: #ffffff;
+    --background: #eeeeee;
+    --grey: #656565;
+    --shadow: #c3c3c3;
+}
+
+* {
+    box-sizing: border-box;
+    background-color: var(--boxes_color);
+}
+
+
+body {
+    margin: 0;
+    height: 100vh;
+    font-size: large;
+
+    background-color: var(--background);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 60px calc(100vh - 180px) 120px;
+    grid-template-areas:
+        "top_nav top_nav"
+        "left_content_box right_content_box"
+        "footer footer";
+    gap: 10px 45px;
+}
+
+#top_nav {
+    grid-area: top_nav;
+
+    list-style: none;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    margin: 0;
+    padding: 0;
+
+    li {
+        padding: 10px 20px;
+        border-right: 1px solid black;
+    }
+
+    li:hover ul {
+        display: block;
+    }
+
+    a {
+        font-weight: bold;
+        padding: 10px;
+        text-decoration: none;
+    }
+
+    ul {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        list-style: none;
+        display: none;
+        padding: 0;
+        width: 17%;
+        box-shadow: 2px 1px 5px #c3c3c3;
+
+        li {
+            width: 100%;
+            border-bottom: 1px solid black;
+            border-right: none;
+        }
+    }
+}
+
+#left_content_box, #right_content_box {
+    box-shadow: 2px 1px 5px #c3c3c3;
+
+    p {
+        color: var(--grey);
+        font-size: 22px;
+    }
+
+    h1, h2, h3 {
+        font-weight: 1000;
+    }
+
+    h1 {
+        font-size: 55px;
+    }
+
+    h2, h3 {
+        font-size: 35px;
+    }
+
+}
+
+#left_content_box {
+    grid-area: left_content_box;
+    padding: 0 15px;
+
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 35%;
+    }
+}
+
+#right_content_box {
+    grid-area: right_content_box;
+    padding: 0 25px;
+
+    li {
+        font-size: 22px;
+        padding-bottom: 30px;
+    }
+
+    table {
+        width: 35%;
+        margin-top: 20px;
+        text-align: center;
+        font-size: 22px;
+
+        th, td {
+            padding: 20px 10px;
+        }
+    }
+
+}
+
+footer {
+    grid-area: footer;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 2%;
+    height: 120px;
+}
