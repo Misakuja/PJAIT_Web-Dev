@@ -32,11 +32,11 @@ header {
             padding-right: 15px;
             border-right: 1px solid black;
             font-weight: 500;
-        }
 
-        h1:last-child {
-            border-right: none;
-            padding-right: 0;
+            &:last-child {
+                border-right: none;
+                padding-right: 0;
+            }
         }
     }
 }

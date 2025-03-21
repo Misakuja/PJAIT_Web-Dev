@@ -46,10 +46,11 @@ body {
         box-sizing: border-box;
         color: var(--secondary_font_color);
         text-decoration: none;
-    }
 
-    a:hover {
-        color: white;
+
+        &:hover {
+            color: white;
+        }
     }
 
     ul {

@@ -1,0 +1,119 @@
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  font-family: 'Poppins', sans-serif
+
+body
+  background-color: #eeeeee
+
+header
+  width: 100%
+  background-color: white
+  display: flex
+  align-items: center
+  padding: 10px 20px
+  justify-content: space-between
+
+  img
+    width: 75px
+
+  .header_container
+    display: flex
+    gap: 20px
+    color: red
+
+    h1
+      padding-right: 15px
+      border-right: 1px solid black
+      font-weight: 500
+
+      &:last-child
+        border-right: none
+        padding-right: 0
+
+main
+  display: grid
+  grid-template-columns: 1fr 1fr 1fr
+  grid-template-areas: "header_1 header_2 header_3" "left_text images right_text"
+
+  h2, p
+    margin: 20px 10px
+
+  h2
+    font-size: 35px
+    font-weight: 500
+
+  p
+    font-size: 22px
+
+  #header_1
+    grid-area: header_1
+
+  #header_2
+    grid-area: header_2
+
+  #header_3
+    grid-area: header_3
+
+  #left_text
+    grid-area: left_text
+
+  #pictures
+    display: flex
+    flex-wrap: wrap
+    max-width: 400px
+    gap: 20px
+    justify-content: center
+    align-items: center
+
+    img
+      grid-area: images
+      width: 150px
+
+  #right_text
+    grid-area: right_text
+
+footer
+  background-color: black
+  color: white
+  padding: 10px 0
+  text-align: center
+  margin-top: 20px
+
+@media (max-width: 900px)
+  header
+    flex-direction: column
+    align-items: center
+    text-align: center
+    padding: 15px 0
+
+    .header_container
+      flex-direction: column
+      gap: 10px
+
+      h1
+        border-right: none
+        border-bottom: 1px black solid
+        width: 100%
+
+  main
+    display: flex
+    flex-direction: column
+    align-items: center
+    text-align: left
+
+    #pictures
+      display: flex
+      flex-direction: column
+      gap: 10px
+      width: 100%
+      justify-content: flex-start
+
+      img
+        width: 100%
+
+  h2, p
+    margin: 15px

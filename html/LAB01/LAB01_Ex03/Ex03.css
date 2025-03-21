@@ -40,10 +40,11 @@ body {
     li {
         padding: 10px 20px;
         border-right: 1px solid black;
-    }
 
-    li:hover ul {
-        display: block;
+
+        &:hover ul {
+            display: block;
+        }
     }
 
     a {
