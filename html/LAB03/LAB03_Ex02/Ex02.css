@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #eeeeee;
+}
+
+header {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+header img {
+  width: 75px;
+}
+header .header_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  color: #d50808;
+}
+header .header_container h1 {
+  padding-right: 15px;
+  border-right: 1px solid black;
+  font-weight: 500;
+}
+header .header_container h1:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "header_1 header_2 header_3" "left_text images right_text";
+}
+main h2, main p {
+  margin: 20px 10px;
+}
+main h2 {
+  font-size: 35px;
+  font-weight: 500;
+  color: rgb(246.3846153846, 25.6153846154, 25.6153846154);
+}
+main p {
+  font-size: 22px;
+}
+main #header_1 {
+  grid-area: header_1;
+}
+main #header_2 {
+  grid-area: header_2;
+}
+main #header_3 {
+  grid-area: header_3;
+}
+main #left_text {
+  grid-area: left_text;
+}
+main #pictures {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 400px;
+  gap: 20px;
+}
+main #pictures img {
+  grid-area: images;
+  width: 150px;
+}
+main #right_text {
+  grid-area: right_text;
+}
+
+footer {
+  background-color: rgb(163.8461538462, 6.1538461538, 6.1538461538);
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  margin-top: 20px;
+}
+
+@media (max-width: 900px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px 0;
+  }
+  header .header_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  header .header_container h1 {
+    border-right: none;
+    border-bottom: 1px black solid;
+    width: 100%;
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+  }
+  main #pictures {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+  main #pictures img {
+    width: 100%;
+  }
+  h2, p {
+    margin: 15px;
+  }
+}
+
+/*# sourceMappingURL=Ex02.css.map */
