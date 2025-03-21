@@ -1,8 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-@main-color: red;
+@main-color: #d50808;
 @main-color-lighten: lighten(@main-color, 10%);
 @main-color-darken: darken(@main-color, 10%);
+
+.flex(@direction, @justify, @align) {
+  display: flex;
+  flex-direction: @direction;
+  justify-content: @justify;
+  align-items: @align;
+}
 
 * {
   margin: 0;
@@ -18,20 +25,17 @@ body {
 header {
   width: 100%;
   background-color: white;
-  display: flex;
-  align-items: center;
+  .flex(row, space-between, center);
   padding: 10px 20px;
-  justify-content: space-between;
-  color: @main-color-darken;
 
   img {
     width: 75px;
   }
 
   .header_container {
-    display: flex;
+    .flex(row, flex-start, center);
     gap: 20px;
-
+    color: @main-color;
 
     h1 {
       padding-right: 15px;
@@ -50,9 +54,8 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
-        "header_1 header_2 header_3"
-        "left_text images right_text";
-  color: @main-color-lighten;
+    "header_1 header_2 header_3"
+    "left_text images right_text";
 
   h2, p {
     margin: 20px 10px;
@@ -61,6 +64,7 @@ main {
   h2 {
     font-size: 35px;
     font-weight: 500;
+    color: @main-color-lighten;
   }
 
   p {
@@ -84,12 +88,10 @@ main {
   }
 
   #pictures {
-    display: flex;
+    .flex(row, center, center);
     flex-wrap: wrap;
     max-width: 400px;
     gap: 20px;
-    justify-content: center;
-    align-items: center;
 
     img {
       grid-area: images;
@@ -103,23 +105,21 @@ main {
 }
 
 footer {
-  background-color: @main-color;
+  background-color: @main-color-darken;
   color: white;
   padding: 10px 0;
   text-align: center;
   margin-top: 20px;
 }
 
-
 @media (max-width: 900px) {
   header {
-    flex-direction: column;
-    align-items: center;
+    .flex(column, center, center);
     text-align: center;
     padding: 15px 0;
 
     .header_container {
-      flex-direction: column;
+      .flex(column, center, center);
       gap: 10px;
 
       h1 {
@@ -131,18 +131,13 @@ footer {
   }
 
   main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    .flex(column, center, flex-start);
     text-align: left;
 
-
     #pictures {
-      display: flex;
-      flex-direction: column;
+      .flex(column, flex-start, center);
       gap: 10px;
       width: 100%;
-      justify-content: flex-start;
 
       img {
         width: 100%;
