@@ -1,6 +1,5 @@
 function nightTree(height) {
-    let width = height + 2;
-    if (height % 2 === 0) width++;
+    let width = (height - 2) * 2 + 1;
     let pointerLeft = Math.floor(width / 2);
     let pointerRight = pointerLeft;
 
@@ -23,4 +22,4 @@ function nightTree(height) {
     console.log('*'.repeat(width));
 }
 
-nightTree(6);
+nightTree(15);
