@@ -18,4 +18,4 @@ function pascals(n) {
     return result;
 }
 
-pascals(5)
+pascals(7)

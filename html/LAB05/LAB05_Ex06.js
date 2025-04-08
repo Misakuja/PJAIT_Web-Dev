@@ -22,4 +22,4 @@ function nightTree(height) {
     console.log('*'.repeat(width));
 }
 
-nightTree(15);
+nightTree(6);
