@@ -1,10 +1,8 @@
-function censor(array, censoredWord) {
-    return array.map(
-        function(arrElement) { return arrElement.replaceAll(censoredWord, "*"); }
-    ).join(" ");
+function censor(element) {
+    return element.replaceAll(this.word, "*");
 }
 
 let array = ['kotlet', 'kotka', 'koty', 'pies'];
 
-console.log(censor(array, "kot"))
+console.log(array.map(censor, { word: "kot" }))
 
