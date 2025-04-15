@@ -4,4 +4,4 @@ function tree(n) {
     }
 }
 
-tree(2);
+tree(10);
