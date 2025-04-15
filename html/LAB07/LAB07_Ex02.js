@@ -26,7 +26,6 @@ class Grade {
 class Student {
     #name;
     #surname;
-    #gradesAverage;
     #grades = [];
 
     constructor(name, surname) {
