@@ -43,8 +43,8 @@ class Student {
 
     get grades() {
         let result = "";
-        this.#grades.forEach(g => {
-            result += "Subject: " + g.subject + " - grade: " + g.value + ". ";
+        this.#grades.forEach(grade => {
+            result += "Subject: " + grade.subject + " - grade: " + grade.value + ". ";
         });
         return result;
     }
