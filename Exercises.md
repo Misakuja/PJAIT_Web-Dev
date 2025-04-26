@@ -307,8 +307,12 @@ Stwórz tablicę obiektów typu student (Lab7, zadanie 2).
 ```
 a) Przy pomocy JS zbuduj elementy DOM, by studenci wyświetlali się na stronie, jak na rysunku.
 
+![image](https://github.com/user-attachments/assets/6379cc20-967f-4111-8ae5-dddd98537e23)
+
 b) Dodaj do tego CSS, na przykład taki:
 
 c) Spraw, by na kliknięcie belki z nazwiskiem, dane studenta zwijały się i rozwijały. Podpowiedź:
 - Zdefiniuj klasy css dla elementu rozwiniętego i zwiniętego
 - JavaScript na kliknięcie belki z nazwiskiem podmieni jej klasę, co automatycznie doprowadzi do zmiany wyglądu.
+
+![image](https://github.com/user-attachments/assets/1ac430c8-f28c-4cb2-a048-d442f962cfd8)
