@@ -33,7 +33,6 @@ class Student {
         this.#surname = surname;
     }
 
-
     get gradesAverage() {
         if (this.#grades.length === 0) return 0;
         let sum = 0;
@@ -47,6 +46,10 @@ class Student {
             result += "Subject: " + grade.subject + " - grade: " + grade.value + ". ";
         });
         return result;
+    }
+
+    get gradesArray() {
+        return this.#grades;
     }
 
     set grades(newGrade) {

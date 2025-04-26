@@ -1,0 +1,37 @@
+#list-container {
+  width: 80%;
+  max-width: 350px;
+
+  > div {
+    margin-bottom: 2px;
+    cursor: pointer;
+    background-color: #989898;
+
+    h3:first-child {
+      background-color: inherit;
+      margin: 0;
+      border: 1px solid #000000;
+    }
+
+    .content-row {
+      display: none;
+      font-size: 1em;
+
+      h3 {
+        margin-left: 100px;
+      }
+    }
+
+    &.expanded {
+      h3:first-child {
+        background-color: #f1f1f1;
+      }
+      background-color: white;
+
+      .content-row {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
