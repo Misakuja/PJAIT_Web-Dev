@@ -316,3 +316,23 @@ c) Spraw, by na kliknięcie belki z nazwiskiem, dane studenta zwijały się i ro
 - JavaScript na kliknięcie belki z nazwiskiem podmieni jej klasę, co automatycznie doprowadzi do zmiany wyglądu.
 
 ![image](https://github.com/user-attachments/assets/1ac430c8-f28c-4cb2-a048-d442f962cfd8)
+
+---
+
+# LAB09
+
+1. Prosta modyfikacja DOM.
+   Stwórz 4 divy w HTML oraz 4 przyciski. Do przycisków dodaj następujące działanie:
+
+- przycisk 1 – doda kolejny div do 4 istniejących divów
+- przycisk 2 – usunie pierwszy div (kolejne naciśnięcie usunie kolejny div i tak dalej)
+- przycisk 3 – zmieni kolor tła diva numer 3
+- przycisk 4 – wpisze tekst „nowy tekst” do wszystkich divów.
+
+2. Kalkulator
+   Stwórz prosty kalkulator z wykorzystaniem HTML, CSS, JS. Powinien zawierać:
+- dwa inputy na wpisanie liczb,
+- wybór działania z listy (dodawanie, odejmowanie, mnożenie, dzielenie) i przycisk uruchamiający liczenie,
+- styl CSS na wzór poniższego obrazka
+- kod JavaScript przeprowadzający obliczenie i wyświetlający wynik w HTML
+obsługę dzielenia przez zero: komunikat o błędzie.

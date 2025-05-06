@@ -1,0 +1,79 @@
+$main-blue: #9acccd;
+$main-blue-darken: darken($main-blue, 40%);
+
+$main-grey: #888888;
+$main-grey-darken: darken($main-grey, 10%);
+$main-grey-lighten: lighten($main-grey, 50%);
+
+body {
+  background-color: $main-grey;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  color: $main-grey-darken;
+}
+
+main {
+  width: 80%;
+
+  #result {
+    background-color: $main-blue;
+    border: 2px solid $main-blue-darken;
+    color: $main-blue-darken;
+    font-size: 2rem;
+    text-align: right;
+    padding: 10px;
+  }
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #eeeeee;
+    gap: 10px;
+    padding: 35px 50px 25px 50px;
+    font-weight: bold;
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 5rem;
+
+      label {
+        margin-bottom: 0.25rem;
+        font-size: 0.8rem;
+      }
+
+      input[type="number"], select {
+        text-align: center;
+        font-weight: bolder;
+        padding: 0.5rem;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        width: 75%;
+      }
+
+      select {
+        background-color: $main-grey-lighten;
+      }
+    }
+
+    input[type="button"] {
+      padding: 10px 5px;
+      font-size: 1.2rem;
+      background-color: $main-grey-darken;
+      color: $main-grey-lighten;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+    }
+
+    input[type="button"]:hover {
+      background-color: $main-grey;
+      transition: background-color 0.3s;
+    }
+  }
+}

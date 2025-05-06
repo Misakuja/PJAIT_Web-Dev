@@ -1,0 +1,76 @@
+$main-grey: #888888;
+$main-grey-darken: darken($main-grey, 10%);
+$main-grey-lighten: lighten($main-grey, 50%);
+
+body {
+  background-color: #eeeeee;
+}
+
+.gallery {
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid $main-grey-lighten;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+  padding: 20px;
+  margin: 0 auto;
+
+  img {
+    width: 100%;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  img:hover {
+    border: 2px solid $main-grey-darken;
+  }
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+
+  img {
+    max-width: 75%;
+  }
+
+  .close {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+  }
+
+  button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    color: white;
+    border: none;
+    font-size: 40px;
+    cursor: pointer;
+    padding: 10px;
+    user-select: none;
+    z-index: 1001;
+  }
+
+  .prev {
+    left: 30px;
+  }
+
+  .next {
+    right: 30px;
+  }
+}

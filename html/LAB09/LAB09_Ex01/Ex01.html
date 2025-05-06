@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LAB09 Ex01</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 m-4">
+
+<section class="flex w-full space-x-4 px-4">
+    <button onclick="addDiv()" class="w-full px-6 py-3 bg-gray-300 text-gray-800 rounded-lg shadow-md hover:bg-gray-400 focus:outline-none transform transition duration-300 ease-in-out hover:scale-105">1</button>
+    <button onclick="deleteDiv()" class="w-full px-6 py-3 bg-gray-300 text-gray-800 rounded-lg shadow-md hover:bg-gray-400 focus:outline-none transform transition duration-300 ease-in-out hover:scale-105">2</button>
+    <button onclick="changeBackground()" class="w-full px-6 py-3 bg-gray-300 text-gray-800 rounded-lg shadow-md hover:bg-gray-400 focus:outline-none transform transition duration-300 ease-in-out hover:scale-105">3</button>
+    <button onclick="addText()" class="w-full px-6 py-3 bg-gray-300 text-gray-800 rounded-lg shadow-md hover:bg-gray-400 focus:outline-none transform transition duration-300 ease-in-out hover:scale-105">4</button>
+</section>
+
+<main id="content_box" class="p-4 space-y-4 bg-white rounded-lg shadow-sm">
+    <div class="p-4 bg-gray-200 rounded">1</div>
+    <div class="p-4 bg-gray-200 rounded">2</div>
+    <div class="p-4 bg-gray-200 rounded">3</div>
+    <div class="p-4 bg-gray-200 rounded">4</div>
+</main>
+
+<script src="./Ex01.js"></script>
+</body>
+</html>
