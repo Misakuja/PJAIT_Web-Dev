@@ -335,4 +335,21 @@ c) Spraw, by na kliknięcie belki z nazwiskiem, dane studenta zwijały się i ro
 - wybór działania z listy (dodawanie, odejmowanie, mnożenie, dzielenie) i przycisk uruchamiający liczenie,
 - styl CSS na wzór poniższego obrazka
 - kod JavaScript przeprowadzający obliczenie i wyświetlający wynik w HTML
-obsługę dzielenia przez zero: komunikat o błędzie.
+- obsługę dzielenia przez zero: komunikat o błędzie.
+
+![image](https://github.com/user-attachments/assets/5b7c203b-476b-4aed-b4ab-743e20f20640)
+
+3. Responsywne menu nawigacyjne
+Do strony www z zajęć o CSS (np. z Lab2) dodaj responsywność: menu główne na małych ekranach powinno być zwinięte do „hamburgera” (bez używania gotowych bibliotek).
+
+Przykładowe kroki:
+- element klikalny „hamburger” widoczny tylko na małych rozdzielczościach
+- kod JavaScript, który po kliknięciu na hamburger zmienia klasę listy nawigacyjnej
+- styl listy nawigacyjnej na małe rozdzielczości (domyślnie niewidoczna, po zmianie klasy – widoczna, zakładki wyświetlają się jedna pod drugą)
+
+[Przykład](https://mobirise.com/bootstrap-menu/bootstrap-navigation-menu-template.html)
+
+4. Lightbox
+Przy pomocy HTML, CSS, JS zbuduj galerię zdjęć typu Lightbox bez używania gotowych bibliotek.
+
+[Przykład](https://www.cssscript.com/demo/modal-image-gallery-swg/)
