@@ -5,10 +5,10 @@ function toggleTheme() {
     if (document.body.classList.contains('dark-theme')) {
         document.body.classList.remove('dark-theme');
         document.body.classList.add('light-theme');
-        svg.style.fill = '#fff';
+        svg.style.fill = '#000000';
     } else {
         document.body.classList.remove('light-theme');
         document.body.classList.add('dark-theme');
-        svg.style.fill = '#000';
+        svg.style.fill = '#ffffff';
     }
 }
