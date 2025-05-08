@@ -6,48 +6,83 @@ body {
 
 @include make-theme($themes) {
   .wrapper {
-    margin: 0;
-    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: themed("secondary");
-  }
+    min-height: 100vh;
+    background: themed('gradient');
 
-  main {
-    background-color: themed("main");
-    width: clamp(300px, 90%, 1000px);
-    min-height: 400px;
-    display: flex;
-    box-shadow: 0 9px 14px -3px themed("shadow-deeper");
-    border-radius: 12px;
-
-    nav {
+    main {
       display: flex;
-      flex-shrink: 0;
       flex-direction: column;
-      width: clamp(120px, 20%, 200px);
+      width: 80%;
+      background-color: rgba(0, 0, 0, 0.1);
+      padding: 20px;
       box-sizing: border-box;
-      border-radius: 12px;
-      border-right: 1px solid themed("shadow");
 
-      button {
-        margin: 20px 0;
-        background-color: themed("main");
-        border: none;
-        cursor: pointer;
-        box-shadow: 0 4px 6px themed("shadow");
-        color: themed("font");
+      header {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
 
-        &:hover {
-          box-shadow: 0 6px 12px themed("shadow-deeper");
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 25px 0;
+        border-radius: 100px;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        #theme-button {
+          margin-right: auto;
+          margin-left: 35px;
+          width: 30px;
+          height: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+
+          svg {
+            width: 30px;
+            height: 30px;
+            transition: fill 0.3s ease;
+          }
+        }
+
+        ul {
+          display: flex;
+          gap: 20px;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+
+        ul:last-child {
+          margin-right: 25px;
+        }
+
+        button {
+          background: none;
+          border: none;
+          color: #fff;
+          font-size: 16px;
+          cursor: pointer;
+
+          &:hover {
+            color: black;
+          }
         }
       }
-    }
 
-    p {
-      margin: 40px;
-      color: themed("font");
+      .content {
+        width: 100%;
+        padding-top: 20px;
+      }
     }
   }
 }

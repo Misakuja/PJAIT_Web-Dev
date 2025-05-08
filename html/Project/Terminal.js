@@ -9,7 +9,7 @@ let offsetX = 0;
 let offsetY = 0;
 
 //show terminal on click
-document.querySelector('nav button:nth-child(2)').addEventListener('click', () => {
+document.getElementById('terminal-button').addEventListener('click', () => {
     terminalPopup.classList.remove('hidden');
 });
 
@@ -17,7 +17,6 @@ function closeTerminal() {
     terminalPopup.classList.add('hidden');
     terminalOutput.innerHTML = "";
     terminalInput.value = "";
-    
 }
 
 //dragging stuff

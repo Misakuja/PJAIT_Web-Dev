@@ -2,9 +2,8 @@ $themes: (
         light: (
                 main: #ffffff,
                 secondary: #eeeeee,
+                gradient: radial-gradient(circle at 80% 50%, #cab0dd 0%, #9090ae 80%),
                 font: #000000,
-                shadow: rgba(0, 0, 0, 0.15),
-                shadow-deeper: rgba(0, 0, 0, 0.2),
                 terminal-font: darken(#00ff00, 15%),
                 terminal-prompt: darken(#00ffff, 10%),
                 terminal-background:#ffffff,
@@ -14,9 +13,8 @@ $themes: (
         dark: (
                 main: #000000,
                 secondary: #121212,
+                gradient: radial-gradient(circle at 80% 50%, #77419f 0%, #22224e 80%),
                 font: #eeeeee,
-                shadow: rgba(255, 255, 255, 0.1),
-                shadow-deeper: rgba(255, 255, 255, 0.2),
                 terminal-font: #00ff00,
                 terminal-prompt: #00ffff,
                 terminal-background: #121212,
