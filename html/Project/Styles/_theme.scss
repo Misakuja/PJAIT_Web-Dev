@@ -1,0 +1,38 @@
+$themes: (
+        light: (
+                main: #ffffff,
+                secondary: #eeeeee,
+                font: #000000,
+                shadow: rgba(0, 0, 0, 0.15),
+                shadow-deeper: rgba(0, 0, 0, 0.2),
+                terminal-font: darken(#00ff00, 15%),
+                terminal-prompt: darken(#00ffff, 10%),
+                terminal-background:#ffffff,
+                terminal-header: #eeeeee,
+
+        ),
+        dark: (
+                main: #000000,
+                secondary: #121212,
+                font: #eeeeee,
+                shadow: rgba(255, 255, 255, 0.1),
+                shadow-deeper: rgba(255, 255, 255, 0.2),
+                terminal-font: #00ff00,
+                terminal-prompt: #00ffff,
+                terminal-background: #121212,
+                terminal-header: lighten(#121212, 30%)
+        ),
+);
+
+@mixin make-theme($themes) {
+        @each $name, $values in $themes {
+                .#{$name}-theme {
+                        $theme-map: $values !global;
+                        @content;
+                }
+        }
+}
+
+@function themed($key) {
+        @return map-get($theme-map, $key);
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="Styles/Main.css">
+    <link rel="stylesheet" href="Styles/Terminal.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="dark-theme">
+<div class="wrapper">
+    <div id="terminal-popup" class="terminal hidden">
+        <div class="terminal-header">
+            <span>Terminal</span>
+            <button onclick="closeTerminal()">×</button>
+        </div>
+        <div class="terminal-body">
+            <pre>'ls Projects', 'whoami', 'snake?'</pre>
+            <div id="terminal-output"></div>
+            <div class="user-input-group">
+                <span class="prompt">user@portfolio:</span>
+                <span class="prompt-end">~$</span>
+                <label for="terminal-input" class="prompt"></label>
+                <input type="text" id="terminal-input" autocomplete="off" placeholder="...">
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <nav>
+            <button>Main</button>
+            <button>Terminal</button>
+            <button>Projects</button>
+            <button>Languages</button>
+        </nav>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias aspernatur dicta ea eaque explicabo iste
+            porro, possimus quia velit? Deserunt doloribus enim ex fuga laudantium nihil obcaecati officia ullam?</p>
+    </main>
+</div>
+<script src="./Terminal.js"></script>
+<script src="./Main.js"></script>
+</body>
+</html>

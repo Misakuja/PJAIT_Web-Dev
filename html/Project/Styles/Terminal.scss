@@ -1,0 +1,88 @@
+@import 'theme';
+@include make-theme($themes) {
+  .terminal {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    max-width: 90%;
+    max-height: 65%;
+
+    background-color: themed("secondary");
+    color: themed("terminal-font");
+    font-family: 'Courier New', Courier, monospace;
+
+    box-shadow: 0 8px 16px themed("shadow");
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin: 0;
+
+    z-index: 1;
+
+    .terminal-body {
+      padding: 20px;
+      white-space: pre-wrap;
+      background-color: themed("main");
+      flex-grow: 1;
+      border-radius: 10px;
+      overflow-y: auto;
+      font-size: 15px;
+
+      .prompt {
+        color: themed("terminal-prompt");
+        font-weight: 600;
+      }
+
+      .prompt-end {
+        margin-right: 10px;
+        font-weight: 550;
+      }
+
+      .user-input-group {
+        display: flex;
+        flex-direction: row;
+        margin-top: 10px;
+
+        input {
+          background: none;
+          border: none;
+          color: themed("terminal-font");
+          font-family: monospace;
+          width: 100%;
+
+          &:focus {
+            outline: none;
+            box-shadow: none;
+          }
+        }
+      }
+    }
+
+    .terminal-header {
+      background-color: themed("terminal-header");
+      color: themed("font");
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: move;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+
+      button {
+        font-size: 0.9rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: themed("font");
+      }
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+}
