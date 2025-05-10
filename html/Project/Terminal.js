@@ -8,6 +8,9 @@ let isDragging = false;
 let offsetX = 0;
 let offsetY = 0;
 
+let inputArray = [];
+let indexOfInputArray = -1;
+
 //show terminal on click
 document.getElementById('terminal-button').addEventListener('click', () => {
     terminalPopup.classList.remove('hidden');
@@ -17,6 +20,8 @@ function closeTerminal() {
     terminalPopup.classList.add('hidden');
     terminalOutput.innerHTML = "";
     terminalInput.value = "";
+    indexOfInputArray = -1;
+
 }
 
 //dragging stuff
@@ -43,6 +48,10 @@ document.addEventListener('mouseup', () => {
 terminalInput.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') {
         const inputValue = terminalInput.value.trim();
+        inputArray.unshift(inputValue);
+        if (inputArray.length > 50) {
+            inputArray.pop(); 
+        }
 
         if (inputValue !== '') {
             const commandLine = document.createElement('div');
@@ -76,5 +85,31 @@ terminalInput.addEventListener('keydown', function (e) {
 
             terminalInput.value = '';
         }
+    }
+});
+
+//keyboard control stuff (esc/arrows)
+document.addEventListener('keydown', (event) => {
+    if (terminalPopup.classList.contains('hidden')) return;
+
+    switch (event.key) {
+        case 'Escape':
+            closeTerminal();
+            break;
+        case 'ArrowUp':
+            if (indexOfInputArray < inputArray.length - 1) {
+                indexOfInputArray++;
+                terminalInput.value = inputArray[indexOfInputArray] || '';
+            }
+            break;
+        case 'ArrowDown':
+            if (indexOfInputArray > 0) {
+                indexOfInputArray--;
+                terminalInput.value = inputArray[indexOfInputArray] || '';
+            } else {
+                indexOfInputArray = -1; 
+                terminalInput.value = '';
+            }
+            break;
     }
 });

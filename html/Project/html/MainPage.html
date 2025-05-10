@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Main Page</title>
-    <link rel="stylesheet" href="./Styles/Main.css">
-    <link rel="stylesheet" href="./Styles/Terminal.css">
+    <link rel="stylesheet" href="../Styles/Main.css">
+    <link rel="stylesheet" href="../Styles/Terminal.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body class="light-theme">
+<body class="dark-theme">
 <div class="wrapper">
     <div id="terminal-popup" class="terminal hidden">
         <div class="terminal-header">
@@ -30,42 +30,32 @@
         <header>
             <nav>
                 <div id="theme-button" onclick="toggleTheme()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sun"
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="white"
                          viewBox="0 0 16 16">
                         <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"/>
                     </svg>
                 </div>
                 <ul>
                     <li>
-                        <button>&lt/Main&gt</button>
+                        <button data-file="Main.html">&lt/Main&gt</button>
                     </li>
                     <li>
                         <button id="terminal-button">&lt/Terminal&gt</button>
                     </li>
                     <li>
-                        <button>&lt/Projects&gt</button>
+                        <button data-file="Projects.html">&lt/Projects&gt</button>
                     </li>
                     <li>
-                        <button>&lt/Languages&gt</button>
+                        <button data-file="Languages.html">&lt/Languages&gt</button>
                     </li>
                 </ul>
             </nav>
         </header>
 
-        <div class="content">
-            <h1>Hello~</h1>
-            <h2>Welcome, kind traveller from the future. </h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias aspernatur dicta ea eaque explicabo
-                iste
-                porro, possimus quia velit? Deserunt doloribus enim ex fuga laudantium nihil obcaecati officia
-                ullam?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dignissimos error et explicabo maiores
-                quidem sapiente tenetur. Aliquam culpa eius eveniet minima non perferendis provident quam sed sint,
-                tenetur unde?</p>
-        </div>
+        <div class="content"></div>
     </main>
 </div>
-<script src="./Terminal.js"></script>
-<script src="./Main.js"></script>
+<script src="../Terminal.js"></script>
+<script src="../Main.js"></script>
 </body>
 </html>
