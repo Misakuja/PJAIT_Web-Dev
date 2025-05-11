@@ -24,6 +24,24 @@ function closeTerminal() {
 
 }
 
+function enforceTerminalBounds() {
+    const terminalWidth = terminalPopup.offsetWidth;
+    const terminalHeight = terminalPopup.offsetHeight;
+
+    const parentWidth = window.innerWidth;
+    const parentHeight = window.innerHeight;
+
+    let left = terminalPopup.offsetLeft;
+    let top = terminalPopup.offsetTop;
+
+    let newLeft = Math.max(0, Math.min(parentWidth - terminalWidth, left));
+    let newTop = Math.max(0, Math.min(parentHeight - terminalHeight, top));
+
+    terminalPopup.style.left = `${newLeft}px`;
+    terminalPopup.style.top = `${newTop}px`;
+}
+
+
 //dragging stuff
 terminalHeader.addEventListener('mousedown', (e) => {
     isDragging = true;
@@ -34,14 +52,23 @@ terminalHeader.addEventListener('mousedown', (e) => {
 
 document.addEventListener('mousemove', (e) => {
     if (isDragging) {
-        terminalPopup.style.left = `${e.clientX - offsetX}px`;
-        terminalPopup.style.top = `${e.clientY - offsetY}px`;
+        let newLeft = e.clientX - offsetX;
+        let newTop = e.clientY - offsetY;
+
+        terminalPopup.style.left = `${newLeft}px`;
+        terminalPopup.style.top = `${newTop}px`;
+
+        enforceTerminalBounds();
     }
 });
+
+
+window.addEventListener('resize', enforceTerminalBounds);
 
 document.addEventListener('mouseup', () => {
     isDragging = false;
     terminalHeader.style.cursor = 'move'; 
+    enforceTerminalBounds()
 });
 
 //show things on terminal
