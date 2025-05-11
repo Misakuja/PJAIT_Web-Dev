@@ -46,3 +46,27 @@ window.onload = () => {
         })
     })
 }
+
+//hamburger menu
+const hamburger = document.getElementById("hamburger");
+const buttonList = document.querySelector("main header nav ul");
+
+// open
+hamburger.addEventListener("click", (event) => {
+    event.stopPropagation();
+    buttonList.classList.toggle("open");
+});
+
+// close when click any button
+buttonList.querySelectorAll("button").forEach(button => {
+    button.addEventListener("click", () => {
+        buttonList.classList.remove("open");
+    });
+});
+
+// close when click outside
+document.addEventListener("click", (event) => {
+    if (!buttonList.contains(event.target) && !hamburger.contains(event.target)) {
+        buttonList.classList.remove("open");
+    }
+});

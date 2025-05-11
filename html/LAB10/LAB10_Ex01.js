@@ -1,6 +1,5 @@
 let previouslyFetchedData = {};
 let lastThreeNews = [];
-let lastNewsShown = -1;
 
 function fetchAndDisplayNewStock() {
     $.getJSON("https://szuflandia.pjwstk.edu.pl/~ppisarski/zad8/dane.php", function (data) {
