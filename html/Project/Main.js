@@ -1,6 +1,5 @@
 //dark and light theme
 function toggleTheme() {
-    const themeButton = document.getElementById('theme-button');
     const svgs = document.querySelectorAll('svg');
 
     if (document.body.classList.contains('dark-theme')) {
@@ -35,6 +34,9 @@ window.onload = () => {
             .then(html => {
                 contentDiv.innerHTML = html;
             })
+            .catch(() => {
+                contentDiv.textContent = `Loading content error`;
+            });
     }
 
     document.querySelectorAll("button[data-file]").forEach(button => {
