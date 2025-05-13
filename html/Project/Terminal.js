@@ -71,6 +71,7 @@ document.addEventListener('mouseup', () => {
     enforceTerminalBounds()
 });
 
+
 //show things on terminal
 terminalInput.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') {

@@ -33,6 +33,10 @@ window.onload = () => {
             })
             .then(html => {
                 contentDiv.innerHTML = html;
+
+                if (file === "Languages.html") {
+                    setupLanguageProgressBars();
+                }
             })
             .catch(() => {
                 contentDiv.textContent = `Loading content error`;
