@@ -2,9 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>LAB11_Ex01</title>
+    <link rel="stylesheet" href="./LAB11_Ex01-Lightbox.css">
+    <link rel="stylesheet" href="./LAB11_Ex01-Main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+<h1 id="albums-header">Albums</h1>
+<h1 id="albums-name"></h1>
+<div id="albums"></div>
 
+<button id="back-button">Back to Albums</button>
+
+<div id="form-container">
+    <form id="add-photo-form">
+        <input type="hidden" name="albumId" id="album-id" />
+        <label>
+            <input type="text" name="title" placeholder="Title" required />
+        </label>
+        <label>
+            <input type="url" name="url" placeholder="Image URL" required />
+        </label>
+        <label>
+            <input type="url" name="thumbnailUrl" placeholder="Thumbnail URL" required />
+        </label>
+        <button type="submit">Add Photo</button>
+    </form>
+    <div id="form-response"></div>
+</div>
+
+<div class="gallery" id="gallery"></div>
+
+<div class="lightbox" id="lightbox">
+    <span class="close">&times;</span>
+    <button class="prev">&#10094;</button>
+    <img class="lightbox-image" src="" alt="imgPreview" />
+    <button class="next">&#10095;</button>
+</div>
+
+<script src="./LAB11_Ex01.js"></script>
 </body>
 </html>
