@@ -119,12 +119,13 @@ function setupTerminalInputListener() {
                     terminalOutput.innerHTML = ''
 
                     const instructions = document.createElement('div');
+                    instructions.id = "instructions";
                     instructions.innerHTML = `
-                        <pre>Use WSAD or arrow keys to move the snake.</pre>
-                        <pre>Eat the apples, avoid walls and yourself!</pre>
-                        <pre>Press 'R' to restart the game.</pre>
-                        <pre>Press 'Q' to quit to terminal</pre>
-                        <pre>Press 'S' when you're ready to start'</pre>`
+                        <p>Use WSAD or arrow keys to move the snake.</p>
+                        <p>Eat the apples, avoid walls and yourself!</p>
+                        <p>Press 'R' to restart the game.</p>
+                        <p>Press 'Q' to return to terminal.</p>
+                        <p>Press 'S' when you're ready to start.</p>`
                     terminalOutput.appendChild(instructions);
                 }
 
@@ -238,11 +239,9 @@ function startSnakeGame(canvas) {
     function draw() {
         canvasContext.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Apple
         canvasContext.fillStyle = 'red';
         canvasContext.fillRect(apple.x * gridSize, apple.y * gridSize, gridSize, gridSize);
 
-        // Snake
         canvasContext.fillStyle = 'lime';
         snake.forEach(part => {
             canvasContext.fillRect(part.x * gridSize, part.y * gridSize, gridSize, gridSize);
@@ -252,7 +251,6 @@ function startSnakeGame(canvas) {
     function moveSnake() {
         const head = {x: snake[0].x + dx, y: snake[0].y + dy};
 
-        // Game over
         if (
             head.x < 0 || head.x >= tileCountX ||
             head.y < 0 || head.y >= tileCountY ||
