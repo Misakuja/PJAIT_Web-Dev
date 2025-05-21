@@ -17,10 +17,12 @@
     border-radius: 8px;
     box-sizing: border-box;
     margin: 0;
+    overflow-x: hidden;
 
     z-index: 1;
 
     .terminal-body {
+      position: relative;
       padding: 20px;
       white-space: pre-wrap;
       background-color: themed("main");
@@ -28,6 +30,16 @@
       border-radius: 10px;
       overflow-y: auto;
       font-size: 15px;
+
+      canvas {
+        display: none;
+        width: 100%;
+        height: 600px;
+        max-width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+        border: 2px dotted themed("font");
+      }
 
       .prompt {
         color: themed("terminal-prompt");
@@ -84,3 +96,4 @@
     display: none;
   }
 }
+
