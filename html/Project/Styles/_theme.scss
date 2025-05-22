@@ -2,22 +2,24 @@ $themes: (
         light: (
                 main: #ffffff,
                 secondary: #eeeeee,
-                gradient: radial-gradient(circle at 80% 50%, #cab0dd 0%, #9090ae 80%),
+                purple-details: #433250,
+                gradient: radial-gradient(circle at 80% 50%, #967eaa 0%, #cccccc 80%),
                 font: #000000,
-                terminal-font: darken(#00ff00, 15%),
-                terminal-prompt: darken(#00ffff, 10%),
-                terminal-background:#ffffff,
-                terminal-header: #eeeeee,
+                terminal-font: #049f04,
+                terminal-prompt: #348e8e,
+                terminal-background:#e8e8e8,
+                terminal-header: darken(#e8e8e8, 15%),
 
         ),
         dark: (
                 main: #000000,
                 secondary: #121212,
-                gradient: radial-gradient(circle at 80% 50%, #77419f 0%, #22224e 80%),
+                purple-details: #b9a5ca,
+                gradient: radial-gradient(circle at 80% 50%, #4b355e 0%, #000000 80%),
                 font: #eeeeee,
                 terminal-font: #00ff00,
                 terminal-prompt: #00ffff,
-                terminal-background: #121212,
+                terminal-background: #1b1b1b,
                 terminal-header: lighten(#121212, 30%)
         ),
 );
