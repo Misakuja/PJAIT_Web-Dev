@@ -4,7 +4,7 @@ const command = process.argv[2];
 const fileName = process.argv[3];
 const newText = process.argv.slice(4).join(' ');
 
-const folderPath = './files/';
+const folderPath = '../../files/';
 
 switch (command) {
     case 'open':
