@@ -121,7 +121,7 @@ function setupTerminalInputListener() {
                     const instructions = document.createElement('div');
                     instructions.id = "instructions";
                     instructions.innerHTML = `
-                        <p>Use WSAD or arrow keys to move the snake.</p>
+                        <p>Use WSAD to move the snake.</p>
                         <p>Eat the apples, avoid walls and yourself!</p>
                         <p>Press 'R' to restart the game.</p>
                         <p>Press 'Q' to return to terminal.</p>
@@ -294,7 +294,6 @@ function startSnakeGame(canvas) {
         switch (e.key) {
             case 'W':
             case 'w':
-            case 'ArrowUp':
                 if (dy === 0) {
                     dx = 0;
                     dy = -1;
@@ -302,7 +301,6 @@ function startSnakeGame(canvas) {
                 break;
             case 'S':
             case 's':
-            case'ArrowDown':
                 if (dy === 0) {
                     dx = 0;
                     dy = 1;
@@ -310,7 +308,6 @@ function startSnakeGame(canvas) {
                 break;
             case 'A':
             case 'a':
-            case 'ArrowLeft':
                 if (dx === 0) {
                     dx = -1;
                     dy = 0;
@@ -318,7 +315,6 @@ function startSnakeGame(canvas) {
                 break;
             case 'D':
             case 'd':
-            case 'ArrowRight':
                 if (dx === 0) {
                     dx = 1;
                     dy = 0;

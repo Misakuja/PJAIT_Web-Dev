@@ -15,7 +15,6 @@ body {
     #typewriter-container {
       font-family: monospace;
       font-size: 35px;
-      white-space: nowrap;
       display: inline-flex;
       align-items: center;
     }
@@ -118,10 +117,17 @@ body {
     color: white;
 
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 20px 40px 200px 40px;
+    padding: 50px 40px 200px 40px;
+
+    @media(max-width: 500px) {
+      padding: 20px 0 0 0;
+      width: 100%;
+      left: 0;
+      right: 0;
+    }
 
     .language-wrapper {
       position: relative;
@@ -145,6 +151,7 @@ body {
     }
 
     .language-label {
+      text-wrap: nowrap;
       margin-top: 5px;
       font-size: 14px;
       color: white;
@@ -201,6 +208,7 @@ body {
       border-radius: 12px;
       color: black;
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      max-width: 50%;
 
       display: flex;
       flex-direction: column;
@@ -219,23 +227,23 @@ body {
         padding-left: 10px;
       }
 
-      @media (max-width: 768px) {
+      @media (max-width: 900px) {
         position: static;
         margin-top: 20px;
         width: 100%;
+        max-width: 100%;
         box-sizing: border-box;
         align-items: flex-start;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
       }
     }
 
-    #extra-text {
-      color: themed("font");
-      max-width: 300px;
-
-    }
   }
 
+  #extra-text {
+    color: themed("font");
+    max-width: 300px;
+  }
 
   .wrapper {
     display: flex;
@@ -252,6 +260,11 @@ body {
       padding: 20px;
       box-sizing: border-box;
       border-radius: 12px;
+
+      @media(max-width: 500px) {
+        width: 100%;
+        padding: 0;
+      }
 
       header {
         display: flex;
