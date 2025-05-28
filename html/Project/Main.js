@@ -13,7 +13,6 @@ function typewriter(text, elementId, speedRange = [30, 90]) {
             setTimeout(type, speed);
         }
     }
-
     type();
 }
 

@@ -171,14 +171,24 @@ body {
       }
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 600px) {
+      .language-wrapper {
+        width: 75px;
+        height: 80px;
+        margin-right: 12px;
+        margin-bottom: 12px;
+      }
+
       .programming-language {
+        width: 60px;
+        height: 60px;
         flex-shrink: 1;
-        flex-basis: 45%;
-        max-width: 45%;
-        margin-right: 5%;
-        width: auto;
-        height: auto;
+        margin-right: 0;
+      }
+
+      .language-label {
+        font-size: 12px;
+        padding: 3px 6px;
       }
     }
 
@@ -217,6 +227,12 @@ body {
         align-items: flex-start;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
       }
+    }
+
+    #extra-text {
+      color: themed("font");
+      max-width: 300px;
+
     }
   }
 
