@@ -1,3 +1,23 @@
+function typewriter(text, elementId, speedRange = [30, 90]) {
+    let i = 0;
+    const element = document.getElementById(elementId);
+    if (!element) return;
+
+    element.textContent = "";
+
+    function type() {
+        if (i < text.length) {
+            element.textContent += text.charAt(i++);
+            let speed = Math.random() * (speedRange[1] - speedRange[0]) + speedRange[0];
+            if (".,!?".includes(text.charAt(i - 1))) speed += 300;
+            setTimeout(type, speed);
+        }
+    }
+
+    type();
+}
+
+
 //dark and light theme
 function toggleTheme() {
     const svgs = document.querySelectorAll('svg');
@@ -19,6 +39,8 @@ function toggleTheme() {
     }
 }
 
+
+
 //'SPA' like website handler
 window.onload = () => {
     const contentDiv = document.querySelector(".content");
@@ -37,6 +59,11 @@ window.onload = () => {
                 if (file === "Languages.html") {
                     setupLanguageProgressBars();
                 }
+
+                if (file === "Main.html") {
+                    typewriter("Hewwooo, hiii!", "typewriter-container");
+                }
+
             })
             .catch(() => {
                 contentDiv.textContent = `Loading content error`;
@@ -74,3 +101,5 @@ document.addEventListener("click", (event) => {
         buttonList.classList.remove("open");
     }
 });
+
+
