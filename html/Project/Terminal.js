@@ -16,6 +16,7 @@ let inputArray = [];
 let indexOfInputArray = -1;
 
 let snakeOn = false;
+let snakeStarted = false;
 
 //show terminal on click
 document.getElementById('terminal-button').addEventListener('click', () => {
@@ -169,9 +170,12 @@ document.addEventListener('keydown', (event) => {
             break;
         case 's': //start snake
         case 'S': {
-            if (snakeOn) {
-                document.querySelector('.user-input-group').style.display = 'none';
-
+            if (snakeOn && !snakeStarted) {
+                const userInputGroup = document.querySelector('.user-input-group');
+                if (userInputGroup) {
+                    userInputGroup.style.display = 'none';
+                }
+                
                 terminalBody.innerHTML = '';
 
                 const canvas = document.createElement('canvas');
@@ -181,6 +185,7 @@ document.addEventListener('keydown', (event) => {
                 canvas.style.display = 'block';
 
                 startSnakeGame(canvas);
+                snakeStarted = true;
             }
             break;
         }
@@ -209,6 +214,7 @@ document.addEventListener('keydown', (event) => {
                 setupTerminalInputListener();
 
                 snakeOn = false;
+                snakeStarted = false;
             }
             break;
         }
