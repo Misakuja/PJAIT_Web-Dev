@@ -133,7 +133,15 @@ function setupTerminalInputListener() {
                 if (inputValue === 'clear') {
                     terminalOutput.innerHTML = "";
                 }
+                
+                if (inputValue === 'cd skills' || inputValue === 'cd Skills') {
+                    loadHTML("Skills.html");
+                }
 
+                if (inputValue === 'cd main' || inputValue === 'cd Main') {
+                    loadHTML("Main.html");
+                }
+                
                 terminalInput.value = '';
             }
         }

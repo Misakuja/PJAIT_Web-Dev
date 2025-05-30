@@ -41,40 +41,43 @@ function toggleTheme() {
 
 
 //'SPA' like website handler
+function loadHTML(file) {
+    const contentDiv = document.querySelector(".content");
+
+    fetch(file)
+        .then(response => {
+            if (!response.ok) throw new Error(`Error loading ${file}`);
+            return response.text();
+        })
+        .then(html => {
+            contentDiv.innerHTML = html;
+
+            if (file === "Skills.html") {
+                setupLanguageProgressBars();
+            }
+
+            if (file === "Main.html") {
+                typewriter("Hewwooo, hiii!", "typewriter-container");
+            }
+
+        })
+        .catch(() => {
+            contentDiv.textContent = `Loading content error`;
+        });
+}
+
+
 window.onload = () => {
     const contentDiv = document.querySelector(".content");
 
-    if (!contentDiv.textContent) loadHTML("Main.html")
-
-    function loadHTML(file) {
-        fetch(file)
-            .then(response => {
-                if (!response.ok) throw new Error(`Error loading ${file}`);
-                return response.text();
-            })
-            .then(html => {
-                contentDiv.innerHTML = html;
-
-                if (file === "Languages.html") {
-                    setupLanguageProgressBars();
-                }
-
-                if (file === "Main.html") {
-                    typewriter("Hewwooo, hiii!", "typewriter-container");
-                }
-
-            })
-            .catch(() => {
-                contentDiv.textContent = `Loading content error`;
-            });
-    }
+    if (!contentDiv.textContent) loadHTML("Main.html");
 
     document.querySelectorAll("button[data-file]").forEach(button => {
         button.addEventListener("click", () => {
             const htmlFile = button.getAttribute("data-file");
             loadHTML(htmlFile);
-        })
-    })
+        });
+    });
 }
 
 //hamburger menu
@@ -100,5 +103,4 @@ document.addEventListener("click", (event) => {
         buttonList.classList.remove("open");
     }
 });
-
 
