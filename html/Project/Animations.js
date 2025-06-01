@@ -42,7 +42,7 @@ function createParticlesBackground() {
             for (let i = 0; i < 100; i++) {
                 particles.push(new Particle());
             }
-        }, 200);
+        }, 150);
     }
 
     window.addEventListener('resize', resize);

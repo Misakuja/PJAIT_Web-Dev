@@ -4,7 +4,9 @@ const terminalHeader = document.querySelector('.terminal-header');
 let terminalInput = document.getElementById('terminal-input');
 let terminalOutput = document.getElementById('terminal-output');
 const terminalBody = document.querySelector('.terminal-body');
-
+let terminalInformation = document.getElementById('terminal-information');
+let terminalWelcome = document.getElementById('terminal-welcome');
+let baseInstructions = document.querySelector('.base-instructions');
 const canvas = document.getElementById('snake-canvas');
 
 
@@ -21,6 +23,11 @@ let snakeStarted = false;
 //show terminal on click
 document.getElementById('terminal-button').addEventListener('click', () => {
     terminalPopup.classList.remove('hidden');
+
+    typewriter(
+        `Welcome to the Terminal.`,
+        "terminal-welcome"
+    );
 });
 
 function closeTerminal() {
@@ -28,7 +35,18 @@ function closeTerminal() {
     terminalOutput.innerHTML = "";
     terminalInput.value = "";
     indexOfInputArray = -1;
+    snakeOn = false;
+    snakeStarted = false;
 
+    terminalWelcome.textContent = '';
+    terminalInformation.innerHTML = `You're now in my digital workspace — feel free to explore!
+Try these commands to get started:
+
+whoami          – A quick intro about me.
+snake           – Take a break and play a classic game.
+cd Skills/Main  – Navigate to my main skill set.
+
+Type a command and hit enter. Enjoy the journey.`;
 }
 
 function enforceTerminalBounds() {
@@ -111,7 +129,10 @@ function setupTerminalInputListener() {
 
                 if (inputValue === 'whoami') {
                     const outputWhoAmI = document.createElement('div');
-                    outputWhoAmI.textContent = `Hello, I am retarded!!!`;
+                    outputWhoAmI.textContent = `Name: Anna Turowska
+Role: 2nd Year IT Student @ PJAIT
+Interests: IoT | Cybersecurity
+Passion: Exploring innovative tech solutions & securing digital futures`;
                     terminalOutput.appendChild(outputWhoAmI);
                 }
 
@@ -119,21 +140,18 @@ function setupTerminalInputListener() {
                     snakeOn = true;
                     terminalOutput.innerHTML = ''
 
-                    const instructions = document.createElement('div');
-                    instructions.id = "instructions";
-                    instructions.innerHTML = `
-                        <p>Use WSAD to move the snake.</p>
-                        <p>Eat the apples, avoid walls and yourself!</p>
-                        <p>Press 'R' to restart the game.</p>
-                        <p>Press 'Q' to return to terminal.</p>
-                        <p>Press 'S' when you're ready to start.</p>`
-                    terminalOutput.appendChild(instructions);
+                    terminalWelcome.textContent = '';
+                    terminalInformation.innerHTML = `Use WSAD to move the snake.
+Eat the apples, avoid walls and yourself!
+Press 'R' to restart the game.
+Press 'Q' to return to terminal.
+Press 'S' when you're ready to start.`;
                 }
 
                 if (inputValue === 'clear') {
                     terminalOutput.innerHTML = "";
                 }
-                
+
                 if (inputValue === 'cd skills' || inputValue === 'cd Skills') {
                     loadHTML("Skills.html");
                 }
@@ -141,7 +159,7 @@ function setupTerminalInputListener() {
                 if (inputValue === 'cd main' || inputValue === 'cd Main') {
                     loadHTML("Main.html");
                 }
-                
+
                 terminalInput.value = '';
             }
         }
@@ -183,7 +201,7 @@ document.addEventListener('keydown', (event) => {
                 if (userInputGroup) {
                     userInputGroup.style.display = 'none';
                 }
-                
+
                 terminalBody.innerHTML = '';
 
                 const canvas = document.createElement('canvas');
@@ -204,20 +222,35 @@ document.addEventListener('keydown', (event) => {
                     canvas.style.display = 'none';
                 }
 
+                // Reset the terminal body to original HTML structure
                 terminalBody.innerHTML = `
-                        <pre>'ls Projects', 'whoami', 'snake?'</pre>
-                        <div id="terminal-output"></div>
-                        <div class="user-input-group">
-                            <span class="prompt">user@portfolio:</span>
-                            <span class="prompt-end">~$</span>
-                            <label for="terminal-input" class="prompt"></label>
-                            <input type="text" id="terminal-input" autocomplete="off" placeholder="...">
-                        </div>`
+            <div class="base-instructions">
+                <pre id="terminal-welcome"></pre>
+                <pre id="terminal-information">You're now in my digital workspace — feel free to explore!
+Try these commands to get started:
 
+whoami          – A quick intro about me.
+snake           – Take a break and play a classic game.
+cd Skills/Main  – Navigate to my main skill set.
+
+Type a command and hit enter. Enjoy the journey.
+</pre>
+            </div>
+            <div id="terminal-output"></div>
+            <div class="user-input-group">
+                <span class="prompt">user@portfolio:</span>
+                <span class="prompt-end">~$</span>
+                <label for="terminal-input" class="prompt"></label>
+                <input type="text" id="terminal-input" autocomplete="off" placeholder="...">
+            </div>
+            <canvas id="snake-canvas"></canvas>`;
+
+                // Re-initialize the variables after HTML reset
                 terminalInput = document.getElementById('terminal-input');
                 terminalOutput = document.getElementById('terminal-output');
-
-                document.querySelector('.user-input-group').style.display = '';
+                terminalWelcome = document.getElementById('terminal-welcome');
+                terminalInformation = document.getElementById('terminal-information');
+                baseInstructions = document.querySelector('.base-instructions');
 
                 setupTerminalInputListener();
 
