@@ -42,13 +42,11 @@
         margin: 0;
       }
 
+
       #terminal-welcome {
         font-size: 20px;
         margin: 0;
 
-        &:empty {
-          display: none;
-        }
       }
 
       div {

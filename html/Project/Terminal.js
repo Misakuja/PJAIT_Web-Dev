@@ -194,7 +194,7 @@ document.addEventListener('keydown', (event) => {
                 }
             }
             break;
-        case 's': //start snake
+        case 's': 
         case 'S': {
             if (snakeOn && !snakeStarted) {
                 const userInputGroup = document.querySelector('.user-input-group');
@@ -215,14 +215,13 @@ document.addEventListener('keydown', (event) => {
             }
             break;
         }
-        case 'q': //end snake
+        case 'q':
         case 'Q': {
             if (snakeOn) {
                 if (canvas.style.display !== 'none') {
                     canvas.style.display = 'none';
                 }
 
-                // Reset the terminal body to original HTML structure
                 terminalBody.innerHTML = `
             <div class="base-instructions">
                 <pre id="terminal-welcome"></pre>
@@ -245,7 +244,6 @@ Type a command and hit enter. Enjoy the journey.
             </div>
             <canvas id="snake-canvas"></canvas>`;
 
-                // Re-initialize the variables after HTML reset
                 terminalInput = document.getElementById('terminal-input');
                 terminalOutput = document.getElementById('terminal-output');
                 terminalWelcome = document.getElementById('terminal-welcome');
