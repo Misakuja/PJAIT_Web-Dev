@@ -53,11 +53,11 @@ function loadHTML(file) {
             contentDiv.innerHTML = html;
 
             if (file === "Skills.html") {
-                setupLanguageProgressBars();
+                // setupLanguageProgressBars();
             }
 
             if (file === "Main.html") {
-                typewriter("Hewwooo, hiii!", "typewriter-container");
+                typewriter("Hi, I’m Anna!", "typewriter-container");
             }
 
         })

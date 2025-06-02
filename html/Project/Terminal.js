@@ -35,8 +35,6 @@ function closeTerminal() {
     terminalOutput.innerHTML = "";
     terminalInput.value = "";
     indexOfInputArray = -1;
-    snakeOn = false;
-    snakeStarted = false;
 
     terminalWelcome.textContent = '';
     terminalInformation.innerHTML = `You're now in my digital workspace — feel free to explore!
@@ -73,6 +71,8 @@ terminalHeader.addEventListener('mousedown', (e) => {
     offsetX = e.clientX - terminalPopup.offsetLeft;
     offsetY = e.clientY - terminalPopup.offsetTop;
     terminalHeader.style.cursor = 'grabbing';
+
+    document.body.classList.add('no-select');
 });
 
 document.addEventListener('mousemove', (e) => {
@@ -93,6 +93,9 @@ window.addEventListener('resize', enforceTerminalBounds);
 document.addEventListener('mouseup', () => {
     isDragging = false;
     terminalHeader.style.cursor = 'move';
+
+    document.body.classList.remove('no-select');
+    
     enforceTerminalBounds()
 });
 
