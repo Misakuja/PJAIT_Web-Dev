@@ -53,7 +53,7 @@ function loadHTML(file) {
             contentDiv.innerHTML = html;
 
             if (file === "Skills.html") {
-                // setupLanguageProgressBars();
+                progressBars();
             }
 
             if (file === "Main.html") {

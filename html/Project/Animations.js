@@ -60,3 +60,18 @@ function createParticlesBackground() {
     animate();
 }
 createParticlesBackground();
+
+function progressBars() {
+    document.querySelectorAll('.language-card').forEach(card => {
+        const percent = card.getAttribute('data-progress');
+        const fill = card.querySelector('.progress-fill');
+
+        card.addEventListener('mouseenter', () => {
+            fill.style.width = percent + '%';
+        });
+
+        card.addEventListener('mouseleave', () => {
+            fill.style.width = '0%';
+        });
+    });
+}
