@@ -1,6 +1,98 @@
 @import 'theme';
 
 @include make-theme($themes) {
+  .glitch-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .glitch {
+    font-size: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    text-align: center;
+    margin: 2px 0;
+    letter-spacing: 10px;
+  }
+
+  .glitch:hover {
+    text-shadow: 0.05em 0 0 rgb(76, 123, 147),
+    -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+    0.025em 0.05em 0 rgba(26, 43, 84, 0.75);
+    animation: glitch 500ms infinite;
+  }
+  .glitch span {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .glitch:hover span:first-child {
+    animation: glitch 650ms infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    transform: translate(-0.025em, -0.0125em);
+    opacity: 0.8;
+  }
+
+  .glitch:hover span:last-child {
+    animation: glitch 375ms infinite;
+    clip-path: polygon(0 80%, 100% 20%, 100% 100%, 0 100%);
+    transform: translate(0.0125em, 0.025em);
+    opacity: 0.8;
+  }
+
+  @keyframes glitch {
+    0% {
+      text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+      -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    14% {
+      text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+      -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    15% {
+      text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+      0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    49% {
+      text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+      0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    50% {
+      text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+      0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    99% {
+      text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+      0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    100% {
+      text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
+      -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-delay: -1ms !important;
+      animation-duration: 1ms !important;
+      animation-iteration-count: 1 !important;
+      background-attachment: initial !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0s !important;
+      transition-delay: 0s !important;
+    }
+  }
+
   .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -35,6 +127,7 @@
         font-size: 1.5rem;
         font-weight: 600;
         margin: 0;
+        color: #ccc;
       }
 
       .project-description {
@@ -70,35 +163,12 @@
     .language-card {
       display: flex;
       align-items: center;
-      background-color: #1e1e1e;
+      background-color: rgba(themed('purple-details'), 0.4);
       border-radius: 12px;
       padding: 12px;
       transition: transform 0.3s ease;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
       height: 125px;
-
-      &:hover {
-        transform: translateY(-4px);
-
-        .language-description {
-          opacity: 0;
-          height: 0;
-          margin: 0;
-        }
-
-        .progress-bar-wrapper {
-          height: auto;
-          opacity: 1;
-          margin-top: 6px;
-
-
-          .progress-bar-label {
-            opacity: 1;
-            max-height: 20px;
-            margin-top: 6px;
-          }
-        }
-      }
 
       .icon-wrapper {
         flex-shrink: 0;
@@ -131,7 +201,6 @@
         font-size: 16px;
         color: white;
         font-family: monospace;
-
       }
 
       .language-description {
@@ -139,7 +208,7 @@
         font-size: 13px;
         color: #ccc;
         font-family: monospace;
-
+        transition: opacity 0.3s ease, height 0.3s ease, margin 0.3s ease;
       }
 
       .progress-bar-wrapper {
@@ -148,19 +217,14 @@
         background: transparent;
         opacity: 0;
         height: 0;
-        overflow: hidden;
         margin: 0;
-        transition:
-                opacity 0.3s ease,
-                height 0.3s ease,
-                margin 0.3s ease;
+        transition: opacity 0.3s ease, height 0.3s ease, margin 0.3s ease;
 
         .progress-bar {
           width: 100%;
           height: 6px;
           background: #333;
           border-radius: 3px;
-          overflow: hidden;
         }
 
         .progress-fill {
@@ -178,8 +242,90 @@
           opacity: 0;
           max-height: 0;
           margin-top: 0;
-          overflow: hidden;
           transition: opacity 0.3s ease, max-height 0.3s ease, margin-top 0.3s ease;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 876px) {
+    .language-card:hover {
+      transform: translateY(-4px);
+
+      .language-description {
+        opacity: 0;
+        height: 0;
+        margin: 0;
+      }
+
+      .progress-bar-wrapper {
+        height: auto;
+        opacity: 1;
+        margin-top: 6px;
+
+        .progress-bar-label {
+          opacity: 1;
+          max-height: 20px;
+          margin-top: 6px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 875px) {
+    .languages {
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      padding: 12px;
+
+      .language-card {
+        height: auto;
+        padding: 8px;
+        flex-direction: row;
+        align-items: center;
+        box-sizing: border-box;
+
+        .icon-wrapper {
+          width: 40px;
+          height: 40px;
+          margin-right: 8px;
+          flex-shrink: 0;
+        }
+
+        .language-description {
+          display: none;
+        }
+
+        .language-title {
+          font-size: 12px;
+        }
+
+        .progress-bar-wrapper {
+          opacity: 1;
+          height: 6px;
+          flex-grow: 1;
+          min-width: 6px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          .progress-bar {
+            width: 100%;
+            height: 6px;
+            margin-top: 3px;
+            background: #333;
+            border-radius: 3px;
+          }
+
+          .progress-fill {
+            height: 100%;
+            background: themed("linear-gradient");
+            border-radius: 3px;
+          }
+
+          .progress-bar-label {
+            display: none;
+          }
         }
       }
     }

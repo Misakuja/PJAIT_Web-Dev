@@ -11,6 +11,9 @@ $themes: (
                 terminal-prompt: #348e8e,
                 terminal-background:#e8e8e8,
                 terminal-header: darken(#e8e8e8, 15%),
+                glitch-first: #00FFFF,
+                glitch-second: #CCFF00,
+                glitch-third: #FF0080
 
         ),
         dark: (
@@ -24,7 +27,10 @@ $themes: (
                 terminal-font: #00ff00,
                 terminal-prompt: #00ffff,
                 terminal-background: #1b1b1b,
-                terminal-header: lighten(#121212, 30%)
+                terminal-header: lighten(#121212, 30%),
+                glitch-first: #008B8B,
+                glitch-second: #6B8E23,
+                glitch-third: #8B008B
         ),
 );
 

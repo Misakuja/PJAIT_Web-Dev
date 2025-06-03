@@ -66,12 +66,17 @@ function progressBars() {
         const percent = card.getAttribute('data-progress');
         const fill = card.querySelector('.progress-fill');
 
-        card.addEventListener('mouseenter', () => {
+        const isMobile = window.matchMedia('(max-width: 850px)').matches;
+        if (isMobile) {
             fill.style.width = percent + '%';
-        });
+        } else {
+            card.addEventListener('mouseenter', () => {
+                fill.style.width = percent + '%';
+            });
 
-        card.addEventListener('mouseleave', () => {
-            fill.style.width = '0%';
-        });
+            card.addEventListener('mouseleave', () => {
+                fill.style.width = '0%';
+            });
+        }
     });
 }

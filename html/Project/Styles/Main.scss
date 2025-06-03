@@ -5,6 +5,10 @@ body {
   position: relative;
 }
 
+html {
+  background-color: #000;;
+}
+
 .no-select {
   user-select: none;
   -webkit-user-select: none;
