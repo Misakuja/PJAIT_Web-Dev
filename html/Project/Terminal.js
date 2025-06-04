@@ -131,7 +131,7 @@ function setupTerminalInputListener() {
                 terminalOutput.appendChild(commandLine);
 
                 if (inputValue === 'whoami') {
-                    const outputWhoAmI = document.createElement('div');
+                    const outputWhoAmI = document.createElement('pre');
                     outputWhoAmI.textContent = `Name: Anna Turowska
 Role: 2nd Year IT Student @ PJAIT
 Interests: IoT | Cybersecurity
