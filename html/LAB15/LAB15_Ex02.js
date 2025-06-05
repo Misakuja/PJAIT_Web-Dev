@@ -1,41 +1,61 @@
-const socket = new WebSocket("ws://localhost:3000");
-
 const messagesDiv = document.getElementById("messages");
+
 const input = document.getElementById("input");
+const inputUsername = document.getElementById("inputUsername");
+
+const connectButton = document.getElementById("connectButton");
+const disconnectButton = document.getElementById("disconnectButton");
 const sendButton = document.getElementById("button");
 
-const inputUsername = document.getElementById("inputUsername");
-const connectButton = document.getElementById("connectButton");
 const usernameInputGroup = document.getElementById("usernameInputGroup");
 const messageInputGroup = document.getElementById("messageInputGroup");
 
-let username = null;
-input.disabled = true;
-sendButton.disabled = true;
+let username;
+let socket;
 
-messageInputGroup.style.opacity = "0";
-messageInputGroup.style.height = "0";
+function setConnectedUI(connected) {
+    if (connected) {
+        usernameInputGroup.classList.add("hidden");
+        messageInputGroup.classList.remove("hidden");
+        disconnectButton.classList.remove("hidden");
+
+        input.disabled = false;
+        sendButton.disabled = false;
+    } else {
+        usernameInputGroup.classList.remove("hidden");
+        messageInputGroup.classList.add("hidden");
+        disconnectButton.classList.add("hidden");
+
+        input.disabled = true;
+        sendButton.disabled = true;
+    }
+}
 
 connectButton.addEventListener("click", () => {
     const inputName = inputUsername.value.trim();
     if (inputName) {
         username = inputName;
 
-        inputUsername.disabled = true;
-        connectButton.disabled = true;
+        socket = new WebSocket("ws://localhost:3000");
 
-        input.disabled = false;
-        sendButton.disabled = false;
+        socket.addEventListener("open", () => {
+            socket.send(username);
+            setConnectedUI(true);
+        })
 
-        messageInputGroup.style.opacity = "1";
-        messageInputGroup.style.height = "auto";
+        socket.addEventListener("message", (event) => {
+            const message = document.createElement("div");
+            message.textContent = event.data;
+            messagesDiv.appendChild(message);
+        })
+        
+        socket.addEventListener("close", () => {
+            setConnectedUI(false);
+            socket = null;
+        })
 
-        usernameInputGroup.style.opacity = "0";
-        usernameInputGroup.style.height = "0";
-
-        socket.send(username);
     }
-});
+})
 
 sendButton.addEventListener("click", () => {
     const messageInput = input.value.trim();
@@ -43,13 +63,13 @@ sendButton.addEventListener("click", () => {
         socket.send(messageInput);
         input.value = "";
     }
-});
+})
 
-socket.addEventListener("message", (event) => {
-    const message = document.createElement("div");
-    message.textContent = event.data;
-    messagesDiv.appendChild(message);
-});
+disconnectButton.addEventListener("click", () => {
+    if (socket && socket.readyState === WebSocket.OPEN) {
+        socket.close();
+    }
+})
 
 // node LAB15_Ex01.js
 // npx http-server .
