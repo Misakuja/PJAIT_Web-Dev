@@ -12,8 +12,7 @@ server.on('connection',  function connection(ws) {
         if (!clients.has(ws)) {
             clients.set(ws, data.toString());
 
-            const nicks = [...clients.values()];
-            console.log('Connected clients:', nicks.length ? nicks.join(', ') : '(none)');
+            logConnectedClients()
         } else {
 
             const nick = clients.get(ws);
@@ -24,4 +23,15 @@ server.on('connection',  function connection(ws) {
             })
         }
     })
+    ws.on('close', () => {
+        if (clients.has(ws)) {
+            clients.delete(ws);
+            logConnectedClients();
+        }
+    })
 })
+
+function logConnectedClients() {
+    const nicks = [...clients.values()];
+    console.log('Connected clients:', nicks.length ? nicks.join(', ') : '(none)');
+}
