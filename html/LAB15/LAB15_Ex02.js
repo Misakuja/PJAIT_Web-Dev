@@ -15,21 +15,31 @@ let socket;
 
 function setConnectedUI(connected) {
     if (connected) {
-        usernameInputGroup.classList.add("hidden");
-        messageInputGroup.classList.remove("hidden");
-        disconnectButton.classList.remove("hidden");
+        usernameInputGroup.style.opacity = "0";
+        usernameInputGroup.style.height = "0";
+        messageInputGroup.style.opacity = "1";
+        messageInputGroup.style.height = "auto";
+
+        disconnectButton.style.opacity = "1";
+        disconnectButton.style.height = "auto";
 
         input.disabled = false;
         sendButton.disabled = false;
     } else {
-        usernameInputGroup.classList.remove("hidden");
-        messageInputGroup.classList.add("hidden");
-        disconnectButton.classList.add("hidden");
+        usernameInputGroup.style.opacity = "1";
+        usernameInputGroup.style.height = "auto";
+        messageInputGroup.style.opacity = "0";
+        messageInputGroup.style.height = "0";
+
+        disconnectButton.style.opacity = "0";
+        disconnectButton.style.height = "0";
 
         input.disabled = true;
         sendButton.disabled = true;
     }
 }
+
+setConnectedUI(false);
 
 connectButton.addEventListener("click", () => {
     const inputName = inputUsername.value.trim();
